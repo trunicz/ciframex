@@ -30,7 +30,7 @@ const alfab = [
   "z",
 ];
 
-const getC = (m, k) => {
+const getC = (m, k, type) => {
   let c = "";
 
   if (m.length > k.length) {
@@ -59,7 +59,11 @@ const getC = (m, k) => {
     num1 = m[letter];
     num2 = k[letter];
 
-    nums = alfab.indexOf(num1) - alfab.indexOf(num2);
+    if (type == 2) {
+      nums = alfab.indexOf(num1) - alfab.indexOf(num2);
+    } else {
+      nums = alfab.indexOf(num1) + alfab.indexOf(num2);
+    }
     nums = nums % alfab.length;
 
     while (nums < 0) {
@@ -68,7 +72,17 @@ const getC = (m, k) => {
     c += alfab[nums];
   }
 
-  console.log(c);
+  notie.alert({ type: 5, text: "El resultado es [ " + c + " ]", stay: true });
 };
 
-getC("uskkh", "s");
+document.querySelector(".btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  let mensaje = document.querySelector("#mensaje").value;
+  let clave = document.querySelector("#clave").value;
+  let type = document.querySelector("#type").value;
+
+  if (mensaje && clave && type) {
+    getC(mensaje, clave, type);
+  } else {
+  }
+});

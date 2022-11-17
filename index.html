@@ -8,32 +8,46 @@
   <title>Ciframex</title>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.40.1/dist/full.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+  <style>
+    /* override styles here */
+    .notie-container {
+      box-shadow: none;
+    }
+  </style>
 </head>
 
-<body>
-  <div class="artboard artboard-horizontal phone-3 mt-10 mx-auto shadow-2xl rounded-xl p-10">
+<body class="md:p-16 pt-24 min-h-screen bg-[url('https://tailwindcss.com/img/background-pattern.svg')]">
+  <div class=" glass md:w-[800px] phone-3 mx-auto shadow-2xl rounded-xl p-10 h-auto">
     <h1 class="text-center font-bold text-4xl">Cifra Mex</h1>
     <p class="text-center mt-3">Un cifrado inteligente y mexicano</p>
 
     <form class="mt-10">
-      <select name="type" id="type" class="select w-full border-3 border-black">
-        <option value="cifrado" disabled selected>selecciona un tipo</option>
+      <select name="type" id="type" class="select w-full input-bordered">
+        <option value="" disabled selected>selecciona un tipo</option>
         <option value="1">Cifrar</option>
-        <option value="2">Desifrar</option>
+        <option value="2">Descifrar</option>
       </select>
 
-      <label for="mensaje" class="label">Mensaje:</label>
-      <input type="text" name="mensaje" id="mensaje" class="form-control w-full border-3 border-black" required>
+      <div class="md:flex gap-5 mb-10">
+        <div class="md:w-1/2">
+          <label for="mensaje" class="label">Mensaje:</label>
+          <input type="text" name="mensaje" id="mensaje" class="input w-full input-bordered" required>
+        </div>
 
-      <label for="clave" class="label">Clave:</label>
-      <input type="text" name="clave" id="clave" class="form-control w-full border-3 border-black" required>
+        <div class="md:w-1/2">
+          <label for="clave" class="label">Clave:</label>
+          <input type="text" name="clave" id="clave" class="input w-full input-bordered" required>
+        </div>
+      </div>
 
-      <button class="btn">Obtener</button>
+      <button class="btn w-full">Obtener</button>
     </form>
 
   </div>
 
   <script src="./main.js"></script>
+  <script src="https://unpkg.com/notie"></script>
 </body>
 
 </html>
